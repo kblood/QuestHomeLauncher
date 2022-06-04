@@ -141,6 +141,7 @@ public class OVRMesh : MonoBehaviour
 		}
 	}
 
+#if UNITY_EDITOR
 	private void Update()
 	{
 		if (ShouldInitialize())
@@ -148,5 +149,6 @@ public class OVRMesh : MonoBehaviour
 			Initialize(_meshType);
 		}
 	}
+#endif
 
 }

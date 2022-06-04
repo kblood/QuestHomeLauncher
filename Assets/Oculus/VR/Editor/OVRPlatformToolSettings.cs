@@ -1,3 +1,15 @@
+/************************************************************************************
+Copyright : Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
+
+Your use of this SDK or tool is subject to the Oculus SDK License Agreement, available at
+https://developer.oculus.com/licenses/oculussdk/
+
+Unless required by applicable law or agreed to in writing, the Utilities SDK distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ANY KIND, either express or implied. See the License for the specific language governing
+permissions and limitations under the License.
+************************************************************************************/
+
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -359,6 +371,25 @@ namespace Assets.Oculus.VR.Editor
 			set { Instance.runOvrLint = value; }
 		}
 
+		public static bool UploadDebugSymbols
+		{
+			get
+			{
+				if (EditorPrefs.HasKey("OVRPlatformToolSettings_UploadDebugSymbols"))
+				{
+					return EditorPrefs.GetBool("OVRPlatformToolSettings_UploadDebugSymbols");
+				}
+				else
+				{
+					return true;
+				}
+			}
+			set
+			{
+				EditorPrefs.SetBool("OVRPlatformToolSettings_UploadDebugSymbols", value);
+			}
+		}
+
 		public static string DebugSymbolsDirectory
 		{
 			get
@@ -375,6 +406,44 @@ namespace Assets.Oculus.VR.Editor
 			set
 			{
 				EditorPrefs.SetString("OVRPlatformToolSettings_DebugSymbolsDirectory", value);
+			}
+		}
+
+		public static bool UploadDebugSymbolsOnly
+		{
+			get
+			{
+				if (EditorPrefs.HasKey("OVRPlatformToolSettings_UploadDebugSymbolsOnly"))
+				{
+					return EditorPrefs.GetBool("OVRPlatformToolSettings_UploadDebugSymbolsOnly");
+				}
+				else
+				{
+					return false;
+				}
+			}
+			set
+			{
+				EditorPrefs.SetBool("OVRPlatformToolSettings_UploadDebugSymbolsOnly", value);
+			}
+		}
+
+		public static string BuildID
+		{
+			get
+			{
+				if (EditorPrefs.HasKey("OVRPlatformToolSettings_BuildID"))
+				{
+					return EditorPrefs.GetString("OVRPlatformToolSettings_BuildID");
+				}
+				else
+				{
+					return "";
+				}
+			}
+			set
+			{
+				EditorPrefs.SetString("OVRPlatformToolSettings_BuildID", value);
 			}
 		}
 

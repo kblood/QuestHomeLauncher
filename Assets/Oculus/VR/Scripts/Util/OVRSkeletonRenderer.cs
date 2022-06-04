@@ -306,10 +306,12 @@ public class OVRSkeletonRenderer : MonoBehaviour
 
 	public void Update()
 	{
+#if UNITY_EDITOR
 		if (ShouldInitialize())
 		{
 			Initialize();
 		}
+#endif
 
 		IsDataValid = false;
 		IsDataHighConfidence = false;
